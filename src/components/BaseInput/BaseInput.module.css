@@ -1,0 +1,42 @@
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 18px;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--color-input);
+  color: var(--color-grey);
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+
+  &::placeholder {
+    color: var(--color-grey);
+    font-weight: 400;
+  }
+
+  &:focus {
+    color: var(--color-main);
+
+    & + .icon {
+      fill: var(--color-main);
+    }
+  }
+}
+
+.withIcon {
+  padding-left: 46px;
+}
+
+.icon {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  fill: var(--color-grey);
+}
