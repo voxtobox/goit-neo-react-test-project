@@ -1,0 +1,15 @@
+.header {
+  background: var(--color-input);
+  padding: 24px 64px;
+  height: 72px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+}

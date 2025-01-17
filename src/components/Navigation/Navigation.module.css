@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+.navLink {
+  color: var(--color-main);
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: var(--color-button-hover);
+  }
+}
+
+.active {
+  color: var(--color-button-hover);
+}
