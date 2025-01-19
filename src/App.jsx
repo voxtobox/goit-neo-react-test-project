@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import AppRoutes from './routes/AppRoutes';
 import Header from './components/Header/Header';
 
@@ -6,6 +7,7 @@ function App() {
     <div>
       <Header />
       <AppRoutes />
+      <Toaster />
     </div>
   );
 }
