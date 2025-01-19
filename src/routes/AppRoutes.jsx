@@ -6,6 +6,7 @@ const PageCatalog = lazy(() => import('../pages/PageCatalog/PageCatalog'));
 const PageCamperDetails = lazy(() =>
   import('../pages/PageCamperDetails/PageCamperDetails')
 );
+const PageNotFound = lazy(() => import('../pages/PageNotFound/PageNotFound'));
 
 export default function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ export default function AppRoutes() {
         <Route path="/" element={<PageHome />} />
         <Route path="/catalog" element={<PageCatalog />} />
         <Route path="/catalog/:id" element={<PageCamperDetails />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Suspense>
   );

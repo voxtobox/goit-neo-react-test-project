@@ -1,0 +1,20 @@
+.container {
+  padding: 32px 64px;
+}
+
+.text {
+  font-size: 24px;
+}
+
+.link {
+  color: var(--color-text);
+  padding-left: 5px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--color-button-hover);
+}
