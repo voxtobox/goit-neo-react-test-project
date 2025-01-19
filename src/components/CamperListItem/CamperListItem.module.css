@@ -58,10 +58,10 @@
   &:focus {
     fill: var(--color-button);
   }
+}
 
-  &.selected {
-    fill: var(--color-button);
-  }
+.favoriteIconSelected {
+  fill: var(--color-button);
 }
 
 .ratingIcon {

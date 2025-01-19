@@ -1,5 +1,3 @@
-import css from './CamperList.module.css';
-
 import { useSelector } from 'react-redux';
 import {
   selectCamperItems,
@@ -7,6 +5,7 @@ import {
   selectCamperLoading,
 } from '../../redux/camperSlice.js';
 import CamperListItem from '../CamperListItem/CamperListItem.jsx';
+import css from './CamperList.module.css';
 
 export default function CamperList() {
   const items = useSelector(selectCamperItems);
