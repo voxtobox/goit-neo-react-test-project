@@ -7,11 +7,13 @@ import { fetchCamperById } from '../../redux/camperOps';
 import {
   selectCamperCurrent,
   selectCamperError,
+  selectCamperLoading,
 } from '../../redux/camperSlice';
 import BaseIcon from '../../components/BaseIcon/BaseIcon';
 import CamperDetailsFeatures from '../../components/CamperDetailsFeatures/CamperDetailsFeatures';
 import CamperDetailsReviews from '../../components/CamperDetailsReviews/CamperDetailsReviews';
 import CamperBookForm from '../../components/CamperBookForm/CamperBookForm';
+import Loader from '../../components/Loader/Loader';
 import css from './PageCamperDetails.module.css';
 
 const TAB_FEATURES = 'features';
@@ -22,7 +24,6 @@ export default function CamperDetailsPage() {
   const { hash } = useLocation();
 
   const dispatch = useDispatch();
-  console.log(id);
 
   useEffect(() => {
     if (!id) {
@@ -33,6 +34,7 @@ export default function CamperDetailsPage() {
 
   const camper = useSelector(selectCamperCurrent);
   const error = useSelector(selectCamperError);
+  const loading = useSelector(selectCamperLoading);
 
   useEffect(() => {
     if (error) toast.error(error);
@@ -43,7 +45,8 @@ export default function CamperDetailsPage() {
   );
 
   return (
-    camper && (
+    (loading && <Loader />) ||
+    (camper && (
       <main className="container">
         <div className={css.wrap}>
           <div className={css.mainInfo}>
@@ -140,6 +143,6 @@ export default function CamperDetailsPage() {
           </div>
         </div>
       </main>
-    )
+    ))
   );
 }
