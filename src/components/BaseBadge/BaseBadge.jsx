@@ -3,7 +3,7 @@ import BaseIcon from '../BaseIcon/BaseIcon';
 
 export default function BaseBadge({ text, icon }) {
   return (
-    <div className={CSS.badge}>
+    <div className={css.badge}>
       <BaseIcon width={16} height={16} name={icon} />
       <p>{text}</p>
     </div>

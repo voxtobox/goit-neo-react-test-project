@@ -4,26 +4,17 @@ import css from './BaseInput.module.css';
 
 export default function BaseInput({
   icon,
-  name,
   type = 'text',
-  value,
-  placeholder,
-  id,
-  disabled,
+  as = 'input',
+  className,
+  ...restProps
 }) {
-  const inputClasses = clsx(css.input, icon && css.withIcon);
+  const inputClasses = clsx(css.input, className, icon && css.withIcon);
+  const InputElement = as;
 
   return (
     <div className={css.inputWrap}>
-      <input
-        className={inputClasses}
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        id={id}
-        disabled={disabled}
-      />
+      <InputElement {...restProps} className={inputClasses} type={type} />
       {icon && (
         <BaseIcon className={css.icon} name={icon} width={20} height={20} />
       )}
