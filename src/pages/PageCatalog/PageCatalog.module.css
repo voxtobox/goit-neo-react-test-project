@@ -1,0 +1,10 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  padding: 48px 0 52px;
+}
+
+.side {
+  width: 360px;
+}
