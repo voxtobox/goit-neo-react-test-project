@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 44px 57px;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.header {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.note {
+  font-size: 16px;
+  color: var(--color-gray);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldError {
+  color: var(--color-button);
+  font-size: 14px;
+  margin-left: 18px;
+}
+
+.submit {
+  margin-top: 10px;
+  align-self: center;
+  width: 166px;
+}
