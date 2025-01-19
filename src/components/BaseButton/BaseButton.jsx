@@ -6,12 +6,18 @@ export default function BaseButton({
   onClick,
   children,
   className,
+  width,
   ...restProps
 }) {
   const buttonClass = clsx(className, css.button, primary && css.primary);
 
   return (
-    <button {...restProps} className={buttonClass} onClick={onClick}>
+    <button
+      {...restProps}
+      className={buttonClass}
+      onClick={onClick}
+      style={{ width }}
+    >
       {children}
     </button>
   );
