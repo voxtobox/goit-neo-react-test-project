@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  border-radius: 20px;
+  border: 1px solid var(--color-gray-light);
+  overflow: hidden;
+  padding: 24px;
+  gap: 24px;
+  max-width: 889px;
+}
+
+.image {
+  min-width: 292px;
+  width: 292px;
+  height: 320px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.favoriteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.favoriteIcon {
+  fill: var(--color-main);
+  cursor: pointer;
+  transition: fill 0.3s;
+
+  &:hover,
+  &:focus {
+    fill: var(--color-button);
+  }
+
+  &.selected {
+    fill: var(--color-button);
+  }
+}
+
+.ratingIcon {
+  fill: var(--color-rating);
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+}
+
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metaText {
+  font-size: 16px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 525px;
+}
