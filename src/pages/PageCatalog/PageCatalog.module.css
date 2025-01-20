@@ -7,4 +7,12 @@
 
 .side {
   width: 360px;
+  flex-shrink: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
 }

@@ -1,35 +1,40 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCamperItems } from '../../redux/camperOps';
+import { useSelector } from 'react-redux';
 import { selectCamperLoading } from '../../redux/camperSlice';
 import { setPageMeta, DEFAULT_TITLE } from '../../meta';
 import css from './PageCatalog.module.css';
 import Filter from '../../components/Filter/Filter';
 import CamperList from '../../components/CamperList/CamperList';
 import Loader from '../../components/Loader/Loader';
+import BaseButton from '../../components/BaseButton/BaseButton';
+import { useCamperLoader } from '../../redux/useCamperLoader';
 
 export default function PageCatalog() {
-  const dispatch = useDispatch();
+  const camperLoader = useCamperLoader();
   const loading = useSelector(selectCamperLoading);
 
   useEffect(() => {
-    dispatch(fetchCamperItems());
-  }, [dispatch]);
+    camperLoader.loadInitial();
+  }, []);
 
   useEffect(() => {
     setPageMeta({ title: DEFAULT_TITLE + ' | Catalog' });
   }, []);
 
   return (
-    (loading && <Loader />) || (
-      <main className="container">
-        <div className={css.wrap}>
-          <aside className={css.side}>
-            <Filter />
-          </aside>
+    <main className="container">
+      <div className={css.wrap}>
+        <aside className={css.side}>
+          <Filter />
+        </aside>
+        <div className={css.list}>
           <CamperList />
+          {loading && <Loader />}
+          {!loading && camperLoader.canLoadMore && (
+            <BaseButton onClick={camperLoader.loadMore}>Load more</BaseButton>
+          )}
         </div>
-      </main>
-    )
+      </div>
+    </main>
   );
 }

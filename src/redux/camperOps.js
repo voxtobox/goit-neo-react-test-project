@@ -3,11 +3,14 @@ import { loadCamperById, loadCamperList } from '../api';
 
 export const fetchCamperItems = createAsyncThunk(
   'camper/fetchCamperItems',
-  async (_, thunkAPI) => {
+  async (params = {}, thunkAPI) => {
     try {
-      return await loadCamperList();
+      const data = await loadCamperList({ params });
+      data.page = params.page;
+      return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -18,7 +21,7 @@ export const fetchCamperById = createAsyncThunk(
     try {
       return await loadCamperById(camperId);
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

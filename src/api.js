@@ -2,8 +2,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers';
 
-export async function loadCamperList() {
-  const data = await axios.get();
+export async function loadCamperList(config = {}) {
+  const data = await axios.get('', config);
   return data.data;
 }
 

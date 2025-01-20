@@ -17,7 +17,7 @@ export default function CamperList() {
   return isShowEmpty ? (
     <h2>No campers match the chosen filters or location.</h2>
   ) : (
-    <ul className={css['camperList']}>
+    <ul className={css.camperList}>
       {items.map(camper => (
         <li key={camper.id}>
           <CamperListItem camper={camper} />

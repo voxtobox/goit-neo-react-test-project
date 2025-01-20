@@ -10,7 +10,7 @@ const PageNotFound = lazy(() => import('../pages/PageNotFound/PageNotFound'));
 
 export default function AppRoutes() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<Loader absolute />}>
       <Routes>
         <Route path="/" element={<PageHome />} />
         <Route path="/catalog" element={<PageCatalog />} />

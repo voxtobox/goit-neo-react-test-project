@@ -54,7 +54,7 @@ export default function CamperDetailsPage() {
   );
 
   return (
-    (loading && <Loader />) ||
+    (loading && <Loader absolute />) ||
     (camper && (
       <main className="container">
         <div className={css.wrap}>

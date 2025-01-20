@@ -12,9 +12,11 @@ import css from './Filter.module.css';
 import BaseButtonIcon from '../BaseButtonIcon/BaseButtonIcon';
 import BaseButton from '../BaseButton/BaseButton';
 import FilterLocation from '../FilterLocation/FilterLocation';
+import { useCamperLoader } from '../../redux/useCamperLoader';
 
 export default function Filters() {
   const dispatch = useDispatch();
+  const camperLoader = useCamperLoader();
 
   const location = useSelector(selectFilterLocation);
   const selectedFeatures = useSelector(selectFilterFeatures);
@@ -30,6 +32,10 @@ export default function Filters() {
 
   function handleLocationChange(value) {
     dispatch(setFilterLocation(value));
+  }
+
+  function handleSearchClick() {
+    camperLoader.loadFilter();
   }
 
   function getIsFeatureSelected(feature) {
@@ -74,7 +80,11 @@ export default function Filters() {
           </li>
         ))}
       </ul>
-      <BaseButton primary className={css.searchButton}>
+      <BaseButton
+        primary
+        className={css.searchButton}
+        onClick={handleSearchClick}
+      >
         Search
       </BaseButton>
     </div>
