@@ -5,6 +5,7 @@ import { setPageMeta } from '../../meta';
 import css from './PageHome.module.css';
 
 export default function PageHome() {
+  // Setup head meta data
   useEffect(() => {
     setPageMeta();
   }, []);

@@ -26,6 +26,7 @@ export default function CamperDetailsPage() {
 
   const dispatch = useDispatch();
 
+  // Load camper data
   useEffect(() => {
     if (!id) {
       return;
@@ -37,10 +38,12 @@ export default function CamperDetailsPage() {
   const error = useSelector(selectCamperError);
   const loading = useSelector(selectCamperLoading);
 
+  // If there is error during loading, show that error as toast message
   useEffect(() => {
     if (error) toast.error(error);
   }, [error]);
 
+  // Set head meta data on camper data load
   useEffect(() => {
     if (!camper.name) return;
     setPageMeta({
@@ -49,6 +52,7 @@ export default function CamperDetailsPage() {
     });
   }, [camper]);
 
+  // initiate activeTab state and set hash as default
   const [activeTab, setActiveTab] = useState(
     hash?.replace('#', '') || TAB_FEATURES
   );

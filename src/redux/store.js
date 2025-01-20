@@ -5,6 +5,7 @@ import camperReducer from './camperSlice';
 import favoritesReducer from './favoritesSlice';
 import filterReducer from './filterSlice';
 
+// Add persist for favorite list
 const favoritesPersistConfig = {
   key: 'favorites',
   storage,

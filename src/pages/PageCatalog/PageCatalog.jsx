@@ -13,10 +13,12 @@ export default function PageCatalog() {
   const camperLoader = useCamperLoader();
   const loading = useSelector(selectCamperLoading);
 
+  // Load catalog items with no filters
   useEffect(() => {
     camperLoader.loadInitial();
   }, []);
 
+  // Set head meta data on load
   useEffect(() => {
     setPageMeta({ title: DEFAULT_TITLE + ' | Catalog' });
   }, []);

@@ -31,7 +31,6 @@ const slice = createSlice({
         state.vehicleType === action.payload ? '' : action.payload;
     },
     setPage(state, action) {
-      console.log(action.payload);
       state.page = action.payload;
     },
   },
