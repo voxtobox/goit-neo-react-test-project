@@ -1,8 +1,14 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BaseButton from '../../components/BaseButton/BaseButton';
+import { setPageMeta } from '../../meta';
 import css from './PageHome.module.css';
 
 export default function PageHome() {
+  useEffect(() => {
+    setPageMeta();
+  }, []);
+
   return (
     <main className="container">
       <section className={css.hero}>

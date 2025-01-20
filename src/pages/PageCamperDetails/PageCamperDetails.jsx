@@ -9,6 +9,7 @@ import {
   selectCamperError,
   selectCamperLoading,
 } from '../../redux/camperSlice';
+import { setPageMeta, DEFAULT_TITLE } from '../../meta';
 import BaseIcon from '../../components/BaseIcon/BaseIcon';
 import CamperDetailsFeatures from '../../components/CamperDetailsFeatures/CamperDetailsFeatures';
 import CamperDetailsReviews from '../../components/CamperDetailsReviews/CamperDetailsReviews';
@@ -39,6 +40,14 @@ export default function CamperDetailsPage() {
   useEffect(() => {
     if (error) toast.error(error);
   }, [error]);
+
+  useEffect(() => {
+    if (!camper.name) return;
+    setPageMeta({
+      title: `${DEFAULT_TITLE} | ${camper.name}`,
+      description: camper.description,
+    });
+  }, [camper]);
 
   const [activeTab, setActiveTab] = useState(
     hash?.replace('#', '') || TAB_FEATURES

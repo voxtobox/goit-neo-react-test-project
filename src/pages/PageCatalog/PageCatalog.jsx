@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCamperItems } from '../../redux/camperOps';
 import { selectCamperLoading } from '../../redux/camperSlice';
+import { setPageMeta, DEFAULT_TITLE } from '../../meta';
 import css from './PageCatalog.module.css';
 import Filter from '../../components/Filter/Filter';
 import CamperList from '../../components/CamperList/CamperList';
@@ -14,6 +15,10 @@ export default function PageCatalog() {
   useEffect(() => {
     dispatch(fetchCamperItems());
   }, [dispatch]);
+
+  useEffect(() => {
+    setPageMeta({ title: DEFAULT_TITLE + ' | Catalog' });
+  }, []);
 
   return (
     (loading && <Loader />) || (
