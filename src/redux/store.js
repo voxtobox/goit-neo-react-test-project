@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import camperReducer from './camperSlice';
 import favoritesReducer from './favoritesSlice';
+import filterReducer from './filterSlice';
 
 const favoritesPersistConfig = {
   key: 'favorites',
@@ -19,6 +20,7 @@ export const store = configureStore({
   reducer: {
     camper: camperReducer,
     favorites: persistedFavoritesReducer,
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -6,6 +6,7 @@ const slice = createSlice({
   name: 'camper',
   initialState: {
     items: [],
+    page: 1,
     current: {},
     loading: false,
     error: null,

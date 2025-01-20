@@ -17,8 +17,8 @@
   cursor: pointer;
   line-height: normal;
 
-  &:hover,
-  &:focus {
+  &.active,
+  &:hover {
     border-color: var(--color-button-hover);
   }
 
@@ -27,8 +27,7 @@
     border-color: var(--color-button);
     color: var(--color-white);
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: var(--color-button-hover);
     }
   }

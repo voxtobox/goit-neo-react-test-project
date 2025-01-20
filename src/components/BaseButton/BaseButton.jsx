@@ -3,21 +3,21 @@ import clsx from 'clsx';
 
 export default function BaseButton({
   primary,
-  onClick,
   children,
   className,
   width,
+  active,
   ...restProps
 }) {
-  const buttonClass = clsx(className, css.button, primary && css.primary);
+  const buttonClass = clsx(
+    className,
+    css.button,
+    primary && css.primary,
+    active && css.active
+  );
 
   return (
-    <button
-      {...restProps}
-      className={buttonClass}
-      onClick={onClick}
-      style={{ width }}
-    >
+    <button {...restProps} className={buttonClass} style={{ width }}>
       {children}
     </button>
   );

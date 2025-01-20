@@ -2,8 +2,12 @@ import { useId } from 'react';
 import css from './FilterLocation.module.css';
 import BaseInput from '../BaseInput/BaseInput';
 
-export default function FilterLocation() {
+export default function FilterLocation({ onChange, ...props }) {
   const id = useId();
+
+  function handleChange(event) {
+    onChange(event.target.value);
+  }
 
   return (
     <div className={css.location}>
@@ -11,10 +15,12 @@ export default function FilterLocation() {
         Location
       </label>
       <BaseInput
+        {...props}
         id={id}
         name="location"
         placeholder="City"
         icon="icon-location"
+        onChange={handleChange}
       />
     </div>
   );
